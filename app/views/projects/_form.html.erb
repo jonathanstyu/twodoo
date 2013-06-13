@@ -1,17 +1,12 @@
-<%= form_for(@project) do |f| %>
-  <% if @project.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@project.errors.count, "error") %> prohibited this project from being saved:</h2>
-
-      <ul>
-      <% @project.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
+<form action="<%= @project.persisted? ? project_path(@project) : projects_path  %>" method="post">
+	<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>" id="authenticity_token">
+	<input type="hidden" name="_method" value="<%= @project.persisted? ? "put" : "post" %>" id="_method">
+	
+	<label for="Title">Title</label><br>
+	<input type="text" name="project[title]" value="<%= @project.title %>" id="Title"><br>
+	<label for="Description">Description</label><br>
+	<input type="text" name="project[description]" value="<%= @project.description %>" id="Description"><br>
+	<input type="hidden" name="project[id]" value="<%= @project.id %>" id="project[id]">
+	
+	<input type="submit" name="submit" value="Submit Information" id="submit">
+</form>
