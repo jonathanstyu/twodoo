@@ -5,11 +5,11 @@
 	<label for="Title">Title</label><br>
 	<input type="text" name="item[title]" value="<%= @item.title %>" id="Title"><br>
 	<label for="Description">Description</label><br>
-	<input type="text" name="item[description]" value="<%= @item.description %>" id="Description"><br>
+	<textarea name="item[description]" rows="8" cols="40"><%= @item.description %></textarea>
 	
 	<h4>Completed?</h4>
-	<label for="check_true" class="checkbox">check_true<input type="checkbox" name="item[completed]" value="true" id="check_true" class="checkbox" <%= "checked" if @item.completed %> ></label>
-	<label for="check_false" class="checkbox">check_false<input type="checkbox" name="item[completed]" value="false" id="check_false" class="checkbox" <%= "checked" if @item.completed == false %>></label><br>
+	<label for="check_true" class="radio">check_true<input type="radio" name="item[completed]" value="true" id="check_true" class="checkbox" <%= "checked" if @item.completed %> ></label>
+	<label for="check_false" class="radio">check_false<input type="radio" name="item[completed]" value="false" id="check_false" class="checkbox" <%= "checked" if @item.completed == false %>></label><br>
 	
 	
 	<input type="hidden" name="item[id]" value="<%= @item.id %>" id="item[id]">

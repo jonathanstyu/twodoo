@@ -5,8 +5,19 @@
 	<label for="Title">Title</label><br>
 	<input type="text" name="project[title]" value="<%= @project.title %>" id="Title"><br>
 	<label for="Description">Description</label><br>
-	<textarea name="Description" rows="5" cols="60"><%= @project.description %></textarea><br>
+	<textarea name="project[description]" rows="5" cols="60"><%= @project.description %></textarea><br>
 	<input type="hidden" name="project[id]" value="<%= @project.id %>" id="project[id]">
 	
+	<h3>Create Some Items For Your New Project</h3>
+	<% @project.items.each_with_index do |item, i| %>
+	<h5>Item <%=i + 1%></h5>
+	<label for="Title">Title</label><br>
+	<input type="text" name="project[items_attributes][<%= i %>][title]" value="<%= item.title %>" id="Title"><br>
+	<label for="Description">Description</label><br>
+	<textarea name="project[items_attributes][<%= i %>][description]" rows="4" cols="60"><%= item.description %></textarea>
+		<label for="check_true" class="radio">Completed<input type="radio" name="project[items_attributes][<%= i %>][completed]" value="true" id="check_true" class="checkbox" <%= "checked" if item.completed %> ></label>
+	<label for="check_false" class="radio">Not Completed<input type="radio" name="project[items_attributes][<%= i %>][completed]" value="false" id="check_false" class="checkbox" <%= "checked" if item.completed == false %>></label><br>
+	<input type="hidden" name="project[items_attributes][<%= i %>][id]" value="<%= item.id %>" id="project[items_attributes][id]">
+	<%end%>
 	<input class= "btn btn-primary" type="submit" name="submit" value="Submit Information" id="submit">
 </form>
