@@ -1,7 +1,7 @@
-Project.create(title: "household chores", description: "The dog has been pooping a lot on the carpet. Make sure he gets out from time to time. Other things to do")
-Project.create(title: "Work related", description: "You should remember that some of these things are not to be done in a day")
-Project.create(title: "Edomame's tasks", description: "You are now in 1Q84, bitches.")
-Project.create(title: "Toru's tasks", description: "Now that you have no job, you can do some of these things.")
+Project.create(title: "household chores", description: "The dog has been pooping a lot on the carpet. Make sure he gets out from time to time. Other things to do", team_id: 1)
+Project.create(title: "Work related", description: "You should remember that some of these things are not to be done in a day", team_id: 2)
+Project.create(title: "Edomame's tasks", description: "You are now in 1Q84, bitches.", team_id: 3)
+Project.create(title: "Toru's tasks", description: "Now that you have no job, you can do some of these things.", team_id: 3)
 
 Item.create(title: 'Find a leash', description: 'you need to do this', completed: false, project_id: 1)
 Item.create(title: 'Find the cat', description: 'last seen behind the house', completed: false, project_id: 4)
@@ -10,3 +10,7 @@ Item.create(title: 'Find your wife', description: 'what has she been doing?', co
 Item.create(title: 'Read long letter from old man', description: 'feel free to ignore the first few pages', completed: false, project_id: 4)
 Item.create(title: 'Hold hands', description: 'Find that single connection', completed: true, project_id: 3)
 Item.create(title: 'Find out friend\'s killer', description: 'was it the elves?', completed: false, project_id: 3)
+
+Team.create(name: "Boobyfeet")
+Team.create(name: "Men for jesus!")
+Team.create(name: "murakamis")

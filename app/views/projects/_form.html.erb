@@ -7,6 +7,13 @@
 	<label for="Description">Description</label><br>
 	<textarea name="project[description]" rows="5" cols="60"><%= @project.description %></textarea><br>
 	<input type="hidden" name="project[id]" value="<%= @project.id %>" id="project[id]">
+	<label for="project[team_id]">Select a Team<br>
+	<select name="project[team_id]" id="project[team_id]">
+		<option value="">Select One</option>
+		<% Team.all.each do |team|%>
+		<option value="<%= team.id %>"><%= team.name %></option>
+		<%end%>
+	</select></label>
 	
 	<h3>Create Some Items For Your New Project</h3>
 	<% @project.items.each_with_index do |item, i| %>
