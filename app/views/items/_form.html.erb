@@ -1,17 +1,18 @@
-<%= form_for(@item) do |f| %>
-  <% if @item.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@item.errors.count, "error") %> prohibited this item from being saved:</h2>
-
-      <ul>
-      <% @item.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
+<form action="<%= @item.persisted? ? item_path(@item) : project_items_path  %>" method="post">
+	<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>" id="authenticity_token">
+	<input type="hidden" name="_method" value="<%= @item.persisted? ? "put" : "post" %>" id="_method">
+	
+	<label for="Title">Title</label><br>
+	<input type="text" name="item[title]" value="<%= @item.title %>" id="Title"><br>
+	<label for="Description">Description</label><br>
+	<input type="text" name="item[description]" value="<%= @item.description %>" id="Description"><br>
+	
+	<h4>Completed?</h4>
+	<label for="check_true" class="checkbox">check_true<input type="checkbox" name="item[completed]" value="true" id="check_true" class="checkbox" <%= "checked" if @item.completed %> ></label>
+	<label for="check_false" class="checkbox">check_false<input type="checkbox" name="item[completed]" value="false" id="check_false" class="checkbox" <%= "checked" if @item.completed == false %>></label><br>
+	
+	
+	<input type="hidden" name="item[id]" value="<%= @item.id %>" id="item[id]">
+	
+	<input class= "btn btn-primary" type="submit" name="submit" value="Submit Information" id="submit">
+</form>

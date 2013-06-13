@@ -2,4 +2,14 @@
 
 <h3>Item: <%= @item.title %></h3>
 
+<dl>
+	<dt>
+		Description
+	</dt>
+	<dd>
+		<%= @item.description %>
+	</dd>
+</dl>
+
+<hr />
 <%= link_to 'Edit', edit_item_path(@item) %>

@@ -5,7 +5,7 @@
 	<label for="Title">Title</label><br>
 	<input type="text" name="project[title]" value="<%= @project.title %>" id="Title"><br>
 	<label for="Description">Description</label><br>
-	<input type="text" name="project[description]" value="<%= @project.description %>" id="Description"><br>
+	<textarea name="Description" rows="5" cols="60"><%= @project.description %></textarea><br>
 	<input type="hidden" name="project[id]" value="<%= @project.id %>" id="project[id]">
 	
 	<input class= "btn btn-primary" type="submit" name="submit" value="Submit Information" id="submit">

@@ -17,15 +17,18 @@
 		<th>Item Title</th>
 		<th>Item Description</th>
 		<th>Item Completed?</th>
+		<th>Edit Item</th>
 	</tr>
 	<% @project.items.each do |item| %>
 	<tr>
 		<td><%= link_to item.title, item_path(item) %></td>
 		<td><%= item.description%></td>
 		<td><%= item.completed %></td>
+		<td><%= link_to "Edit", edit_item_path(item)%></td>
 	</tr>
 	<%end%>
 </table>
-
-<%= link_to 'Edit', edit_project_path(@project) %> |
-<%= link_to 'Back', projects_path %>
+<hr />
+<%= link_to 'Edit Project', edit_project_path(@project) %> |
+<%= link_to 'Back', projects_path %> | 
+<%= link_to 'Add New Item', new_project_item_path(@project)%>
