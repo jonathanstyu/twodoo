@@ -1,17 +1,15 @@
-<%= form_for(@team) do |f| %>
-  <% if @team.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@team.errors.count, "error") %> prohibited this team from being saved:</h2>
-
-      <ul>
-      <% @team.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
+<form action="<%= @team.persisted? ? team_path(@team) : teams_path  %>" method="post">
+	<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>" id="authenticity_token">
+	<input type="hidden" name="_method" value="<%= @team.persisted? ? "put" : "post" %>" id="_method">
+	
+	<label for="Name">Name</label><br>
+	<input type="text" name="team[name]" value="<%= @team.name %>" id="Name"><br>
+	<input type="hidden" name="team[id]" value="<%= @team.id %>" id="">
+	<h5>Projects</h5>
+	<%Project.all.each do |project| %>
+	<label for="<%=project.title%>"><%=project.title%>
+		<input type="checkbox" name="team[project_ids][]" value="<%= project.id %>" id="<%=project.title%>" <%= "checked" if @team.project_ids.include?(project.id) %> ><br></label>
+	<%end%>
+	<hr />
+	<input class= "btn btn-primary" type="submit" name="submit" value="Submit Information" id="submit">
+</form>

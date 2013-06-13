@@ -1,5 +1,23 @@
 <p id="notice"><%= notice %></p>
 
+<h3>Team Page: <%= @team.name.capitalize %></h3>
 
+<table class="table-striped" border="1" cellspacing="5" cellpadding="5">
+  <tr>
+		<th>Name</th>
+    <th>Actions</th>
+  </tr>
+
+<%@team.projects.each do |project| %>
+  <tr>
+		<td><%= link_to project.title, project %></td>
+    <td>
+			<%= link_to 'Edit', edit_project_path(project) %> |
+			<%= link_to 'Destroy', project, method: :delete, data: { confirm: 'Are you sure?' } %>
+		</td>
+  </tr>
+<%end%>
+</table>
+<hr />
 <%= link_to 'Edit', edit_team_path(@team) %> |
 <%= link_to 'Back', teams_path %>
