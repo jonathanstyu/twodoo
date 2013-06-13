@@ -1,7 +1,12 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
-#
-# Examples:
-#
-#   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
-#   Mayor.create(name: 'Emanuel', city: cities.first)
+Project.create(title: "household chores", description: "The dog has been pooping a lot on the carpet. Make sure he gets out from time to time. Other things to do")
+Project.create(title: "Work related", description: "You should remember that some of these things are not to be done in a day")
+Project.create(title: "Edomame's tasks", description: "You are now in 1Q84, bitches.")
+Project.create(title: "Toru's tasks", description: "Now that you have no job, you can do some of these things.")
+
+Item.create(title: 'Find a leash', description: 'you need to do this', completed: false, project_id: 1)
+Item.create(title: 'Find the cat', description: 'last seen behind the house', completed: false, project_id: 4)
+Item.create(title: 'Sit in a well', description: 'be careful not to have cover put over the well', completed: false, project_id: 4)
+Item.create(title: 'Find your wife', description: 'what has she been doing?', completed: false, project_id: 4)
+Item.create(title: 'Read long letter from old man', description: 'feel free to ignore the first few pages', completed: false, project_id: 4)
+Item.create(title: 'Hold hands', description: 'Find that single connection', completed: true, project_id: 3)
+Item.create(title: 'Find out friend\'s killer', description: 'was it the elves?', completed: false, project_id: 3)

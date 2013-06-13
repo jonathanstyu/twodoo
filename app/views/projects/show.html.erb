@@ -1,5 +1,31 @@
 <p id="notice"><%= notice %></p>
 
+<h3>Project <%= @project.title %></h3>
+
+<dl>
+	<dt>
+		Description
+	</dt>
+	<dd>
+		<%= @project.description %>
+	</dd>
+</dl>
+
+<h3>Project Items:</h3>
+<table border="1" cellspacing="5" cellpadding="5" class="table-striped">
+	<tr>
+		<th>Item Title</th>
+		<th>Item Description</th>
+		<th>Item Completed?</th>
+	</tr>
+	<% @project.items.each do |item| %>
+	<tr>
+		<td><%= link_to item.title, item_path(item) %></td>
+		<td><%= item.description%></td>
+		<td><%= item.completed %></td>
+	</tr>
+	<%end%>
+</table>
 
 <%= link_to 'Edit', edit_project_path(@project) %> |
 <%= link_to 'Back', projects_path %>
