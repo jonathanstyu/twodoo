@@ -1,0 +1,15 @@
+<form action="<%= @user.persisted? ? user_path(@user) : users_path  %>" method="post">
+	<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>" id="authenticity_token">
+	<input type="hidden" name="_method" value="<%= @user.persisted? ? "put" : "post" %>" id="_method">
+	
+	<label for="Name">Name</label><br>
+	<input type="text" name="user[name]" value="<%= @user.name %>" id="Name"><br>
+	<input type="hidden" name="user[id]" value="<%= @user.id %>" id="">
+	<h5>Team Memberships</h5>
+	<%Team.all.each do |team| %>
+	<label for="<%=team.name%>"><%=team.name%>
+		<input type="checkbox" name="user[team_ids][]" value="<%= team.id %>" id="<%=team.name%>" <%= "checked" if @user.team_ids.include?(team.id) %> ><br></label>
+	<%end%>
+	<hr />
+	<input class= "btn btn-primary" type="submit" name="submit" value="Submit Information" id="submit">
+</form>

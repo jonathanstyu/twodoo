@@ -5,7 +5,7 @@
 	<label for="Name">Name</label><br>
 	<input type="text" name="team[name]" value="<%= @team.name %>" id="Name"><br>
 	<input type="hidden" name="team[id]" value="<%= @team.id %>" id="">
-	<h5>Projects</h5>
+	<h5>Projects Under Management</h5>
 	<%Project.all.each do |project| %>
 	<label for="<%=project.title%>"><%=project.title%>
 		<input type="checkbox" name="team[project_ids][]" value="<%= project.id %>" id="<%=project.title%>" <%= "checked" if @team.project_ids.include?(project.id) %> ><br></label>

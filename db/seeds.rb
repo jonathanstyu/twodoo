@@ -14,3 +14,14 @@ Item.create(title: 'Find out friend\'s killer', description: 'was it the elves?'
 Team.create(name: "Boobyfeet")
 Team.create(name: "Men for jesus!")
 Team.create(name: "murakamis")
+
+User.create(name: 'jenny')
+User.create(name: 'jon')
+User.create(name: 'donny')
+User.create(name: 'conny')
+
+Membership.create(team_id: 3, user_id: 1)
+Membership.create(team_id: 1, user_id: 1)
+Membership.create(team_id: 1, user_id: 4)
+Membership.create(team_id: 2, user_id: 3)
+Membership.create(team_id: 3, user_id: 4)

@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @user.name %>
+</p>
+
+<h5>Teams This Member is a Part Of</h5>
+<table class='table-striped' border="1" cellspacing="5" cellpadding="5">
+  <tr>
+    <th>Team Name</th>
+  </tr>
+
+<% @user.teams.each do |team| %>
+  <tr>
+    <td><%= link_to team.name, team %></td>
+  </tr>
+<% end %>
+</table>
+
+<hr />
+
+
+<%= link_to 'Edit', edit_user_path(@user) %> |
+<%= link_to 'Back', users_path %>

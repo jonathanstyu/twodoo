@@ -1,4 +1,7 @@
 Twodoo::Application.routes.draw do
+  resources :users
+
+
   resources :projects do 
     resources :items, :only => [:new, :create]
   end
