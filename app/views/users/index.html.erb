@@ -9,10 +9,20 @@
 
 <% @users.each do |user| %>
   <tr>
-    <td><%= link_to user.name, user %></td>
+    <td><a href="#modal" data-toggle="modal"><%= user.name %></a></td>
     <td><%= link_to 'Edit', edit_user_path(user) %></td>
     <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
   </tr>
+	
+	<div class="modal hide fade" id="modal">
+		<p>
+		  <b>Name:</b>
+		  <%= user.name %><br>
+			<%= link_to 'Edit', edit_user_path(user) %><br>
+			<%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %>
+		</p>
+	</div>
+	
 <% end %>
 </table>
 
